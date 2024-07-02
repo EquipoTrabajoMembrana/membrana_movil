@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:membrana/presentation/pages/avisos_page.dart';
 import 'package:membrana/presentation/pages/reportes_page.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class Home extends StatefulWidget {
+  const Home({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<Home> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<Home> {
   int _actual = 0;
 
   final List<Widget> _pages = [
-    const ReportesPage(),
-    const AvisosPage(),
+    const Reportes(),
+    const Avisos(),
   ];
   @override
   Widget build(BuildContext context) {

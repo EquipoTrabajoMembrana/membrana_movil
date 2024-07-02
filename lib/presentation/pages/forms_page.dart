@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:membrana/presentation/pages/add_form_page.dart';
 
-class FormsPage extends StatelessWidget {
+class Formularios extends StatelessWidget {
   final String mesNombre;
-  const FormsPage({
+  const Formularios({
     Key? key,
     required this.mesNombre,
   }) : super(key: key);
@@ -13,7 +13,16 @@ class FormsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(mesNombre),
+        title: Text(
+          mesNombre,
+          style: TextStyle(fontFamily: 'Teachers'),
+        ),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: SafeArea(
         child: Padding(
@@ -35,7 +44,7 @@ class FormsPage extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const AddFormPage(),
+                                builder: (context) => const AgregarFormulario(),
                               ),
                             );
                           },
@@ -48,7 +57,10 @@ class FormsPage extends StatelessWidget {
                                     'assets/images/logoNegro.png',
                                     width: 100,
                                   ),
-                                  Text('Form'),
+                                  Text(
+                                    'Form',
+                                    style: TextStyle(fontFamily: 'Teachers'),
+                                  ),
                                 ],
                               ),
                             ),

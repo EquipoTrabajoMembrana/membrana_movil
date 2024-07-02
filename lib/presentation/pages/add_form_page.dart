@@ -2,14 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:membrana/presentation/widgets/custom_elevatedbutton.dart';
 import 'package:membrana/presentation/widgets/custom_textfield.dart';
 
-class AddFormPage extends StatelessWidget {
-  const AddFormPage({super.key});
+class AgregarFormulario extends StatelessWidget {
+  const AgregarFormulario({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Form 1'),
+        title: Text(
+          'Form 1',
+          style: TextStyle(fontFamily: 'Teachers'),
+        ),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: SafeArea(
         child: Padding(
@@ -18,7 +27,10 @@ class AddFormPage extends StatelessWidget {
             child: Column(
               children: [
                 ExpansionTile(
-                  title: Text('Area 1'),
+                  title: Text(
+                    'Area 1',
+                    style: TextStyle(fontFamily: 'Teachers'),
+                  ),
                   shape: Border(),
                   children: [
                     Padding(

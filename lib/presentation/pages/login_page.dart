@@ -3,8 +3,8 @@ import 'package:membrana/presentation/widgets/custom_elevatedbutton.dart';
 import 'package:membrana/presentation/widgets/custom_textbutton.dart';
 import 'package:membrana/presentation/widgets/custom_textfield.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class Login extends StatelessWidget {
+  const Login({super.key});
 
   @override
   Widget build(BuildContext context) {

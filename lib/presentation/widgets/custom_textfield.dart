@@ -8,10 +8,13 @@ class CustomTextField extends StatefulWidget {
   final String? labelText;
   final String? hintText;
   final String obscureTextCharacter;
+  final String initValue;
   final IconData? icon;
   final TextInputType keyboardType;
   final TextInputAction? textInputAction;
   final bool showPass;
+  final bool isEnabled;
+  final bool onlyRead;
 
   const CustomTextField({
     super.key,
@@ -21,7 +24,10 @@ class CustomTextField extends StatefulWidget {
     this.hintText,
     this.obscureTextCharacter = "*",
     this.icon,
+    this.initValue = "",
     this.showPass = false,
+    this.isEnabled = true,
+    this.onlyRead = false,
     this.keyboardType = TextInputType.name,
     this.textInputAction = TextInputAction.next,
   });
@@ -42,7 +48,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   Widget build(BuildContext context) {
     return Material(
       color: Colors.transparent,
-      child: TextField(
+      child: TextFormField(
         style: TextStyle(
           fontFamily: 'Teachers',
         ),
@@ -88,6 +94,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
         ),
         obscureText: widget.showPass == true ? !showPassword : false,
         obscuringCharacter: widget.obscureTextCharacter,
+        enabled: widget.isEnabled,
+        readOnly: widget.onlyRead,
+        initialValue: widget.initValue,
       ),
     );
   }

@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 
-class AvisosPage extends StatelessWidget {
-  const AvisosPage({super.key});
+class Avisos extends StatelessWidget {
+  const Avisos({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Avisos'),
+        title: Text(
+          'Avisos',
+          style: TextStyle(fontFamily: 'Teachers'),
+        ),
       ),
       body: SafeArea(
         child: Container(),
