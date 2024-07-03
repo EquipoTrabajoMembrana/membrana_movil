@@ -15,50 +15,96 @@ class Perfil extends StatelessWidget {
             Navigator.pop(context);
           },
         ),
-        title: const Center(
-          child: Text(
-            'Perfil',
-            style: TextStyle(fontFamily: 'Teachers'),
-          ),
+        title: Text(
+          'Perfil',
+          style: TextStyle(fontFamily: 'Teachers'),
         ),
       ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: SizedBox(
-            height: 50.0.h,
+            height: 80.0.h,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CustomTextField(
-                  isEnabled: false,
-                  onlyRead: true,
-                  labelText: 'Nombre',
-                  initValue: 'Jose Fabian Cruz Puch',
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10.0),
+                  child: ClipOval(
+                    child: Image.asset(
+                      'assets/images/person.jpg',
+                      width: 40.w,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
-                CustomTextField(
-                  isEnabled: false,
-                  onlyRead: true,
-                  labelText: 'Correo lectronico',
-                  initValue: 'Jogo@gmail.com',
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Nombre',
+                        style: TextStyle(fontFamily: 'Teachers'),
+                      ),
+                      CustomTextField(
+                        isEnabled: false,
+                        onlyRead: true,
+                        initValue: 'Jose Fabian Cruz Puch',
+                      ),
+                    ],
+                  ),
                 ),
-                CustomTextField(
-                  isEnabled: false,
-                  onlyRead: true,
-                  labelText: 'Telefono',
-                  initValue: '9992345678',
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Correo electronico',
+                        style: TextStyle(fontFamily: 'Teachers'),
+                      ),
+                      CustomTextField(
+                        isEnabled: false,
+                        onlyRead: true,
+                        initValue: 'Jogo@gmail.com',
+                      ),
+                    ],
+                  ),
                 ),
-                CustomTextField(
-                  isEnabled: false,
-                  onlyRead: true,
-                  labelText: 'Distrito',
-                  initValue: 'SG-22',
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Distrito',
+                        style: TextStyle(fontFamily: 'Teachers'),
+                      ),
+                      CustomTextField(
+                        isEnabled: false,
+                        onlyRead: true,
+                        initValue: 'SG-22',
+                      ),
+                    ],
+                  ),
                 ),
-                CustomTextField(
-                  isEnabled: false,
-                  onlyRead: true,
-                  labelText: 'Comunidad',
-                  initValue: 'SG-22',
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Comunidad',
+                        style: TextStyle(fontFamily: 'Teachers'),
+                      ),
+                      CustomTextField(
+                        isEnabled: false,
+                        onlyRead: true,
+                        initValue: 'SG-22',
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
