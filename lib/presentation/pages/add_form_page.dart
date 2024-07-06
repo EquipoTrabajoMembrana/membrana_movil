@@ -11,7 +11,6 @@ class AgregarFormulario extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           'Form 1',
-          style: TextStyle(fontFamily: 'Teachers'),
         ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios),
@@ -29,7 +28,6 @@ class AgregarFormulario extends StatelessWidget {
                 ExpansionTile(
                   title: Text(
                     'Area 1',
-                    style: TextStyle(fontFamily: 'Teachers'),
                   ),
                   shape: Border(),
                   children: [

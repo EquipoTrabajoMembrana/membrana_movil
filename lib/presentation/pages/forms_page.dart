@@ -15,7 +15,6 @@ class Formularios extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           mesNombre,
-          style: TextStyle(fontFamily: 'Teachers'),
         ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios),
@@ -59,7 +58,6 @@ class Formularios extends StatelessWidget {
                                   ),
                                   Text(
                                     'Form',
-                                    style: TextStyle(fontFamily: 'Teachers'),
                                   ),
                                 ],
                               ),

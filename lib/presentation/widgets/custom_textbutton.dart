@@ -7,6 +7,9 @@ class CustomTextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final primaryColor = theme.colorScheme.primary;
+
     return Material(
       color: Colors.transparent,
       child: TextButton(
@@ -16,10 +19,9 @@ class CustomTextButton extends StatelessWidget {
         onPressed: onPressed,
         child: Text(
           text ?? '',
-          style: const TextStyle(
+          style: theme.textTheme.bodyMedium?.copyWith(
             fontWeight: FontWeight.w800,
-            color: Color(0xFF14213d),
-            fontFamily: 'Teachers',
+            color: primaryColor,
           ),
         ),
       ),

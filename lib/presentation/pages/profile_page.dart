@@ -17,7 +17,6 @@ class Perfil extends StatelessWidget {
         ),
         title: Text(
           'Perfil',
-          style: TextStyle(fontFamily: 'Teachers'),
         ),
       ),
       body: SafeArea(
@@ -45,7 +44,6 @@ class Perfil extends StatelessWidget {
                     children: [
                       Text(
                         'Nombre',
-                        style: TextStyle(fontFamily: 'Teachers'),
                       ),
                       CustomTextField(
                         isEnabled: false,
@@ -62,7 +60,6 @@ class Perfil extends StatelessWidget {
                     children: [
                       Text(
                         'Correo electronico',
-                        style: TextStyle(fontFamily: 'Teachers'),
                       ),
                       CustomTextField(
                         isEnabled: false,
@@ -79,7 +76,6 @@ class Perfil extends StatelessWidget {
                     children: [
                       Text(
                         'Distrito',
-                        style: TextStyle(fontFamily: 'Teachers'),
                       ),
                       CustomTextField(
                         isEnabled: false,
@@ -96,7 +92,6 @@ class Perfil extends StatelessWidget {
                     children: [
                       Text(
                         'Comunidad',
-                        style: TextStyle(fontFamily: 'Teachers'),
                       ),
                       CustomTextField(
                         isEnabled: false,

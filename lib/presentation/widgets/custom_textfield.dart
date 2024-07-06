@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatefulWidget {
@@ -46,51 +44,53 @@ class _CustomTextFieldState extends State<CustomTextField> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final primaryColor = theme.colorScheme.primary;
+    final onSurfaceColor = theme.colorScheme.onSurface;
+    final inputBorder = OutlineInputBorder(
+      borderSide: BorderSide(
+        color: onSurfaceColor,
+      ),
+      borderRadius: const BorderRadius.all(
+        Radius.circular(10.0),
+      ),
+    );
+
     return Material(
       color: Colors.transparent,
       child: TextFormField(
-        style: TextStyle(
-          fontFamily: 'Teachers',
-        ),
+        style: theme.textTheme.bodyMedium,
         controller: widget.textController,
         onTap: widget.onTap,
         keyboardType: widget.keyboardType,
         textInputAction: widget.textInputAction,
         decoration: InputDecoration(
           floatingLabelBehavior: FloatingLabelBehavior.always,
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: Color(0xFF495057),
-            ),
-            borderRadius: BorderRadius.all(
-              Radius.circular(10.0),
-            ),
-          ),
-          border: const OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(10.0),
-            ),
-          ),
-          prefixIcon: widget.icon == null ? null : Icon(widget.icon),
-          prefixIconColor: const Color(0xFF14213d),
+          focusedBorder: inputBorder,
+          border: inputBorder,
+          prefixIcon: widget.icon == null
+              ? null
+              : Icon(
+                  widget.icon,
+                  color: primaryColor,
+                ),
           suffixIcon: widget.showPass == false
               ? null
               : GestureDetector(
                   onTap: () {
                     togglevisibility();
-                    log('message');
                   },
                   child: Icon(
                     !showPassword ? Icons.visibility : Icons.visibility_off,
-                    color: const Color(0xFF14213d),
+                    color: primaryColor,
                   ),
                 ),
-          suffixIconColor: const Color(0xFF14213d),
           labelText: widget.labelText,
-          labelStyle:
-              const TextStyle(color: Color(0xFF14213d), fontFamily: 'Teachers'),
+          labelStyle: theme.textTheme.bodyLarge?.copyWith(
+            color: primaryColor,
+          ),
           hintText: widget.hintText,
-          hintStyle: const TextStyle(fontFamily: 'Teachers'),
+          hintStyle: theme.textTheme.bodyMedium,
         ),
         obscureText: widget.showPass == true ? !showPassword : false,
         obscuringCharacter: widget.obscureTextCharacter,

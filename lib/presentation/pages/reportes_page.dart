@@ -13,7 +13,6 @@ class Reportes extends StatelessWidget {
       appBar: AppBar(
         title: const Text(
           'Reportes',
-          style: TextStyle(fontFamily: 'Teachers'),
         ),
         actions: [
           IconButton(
@@ -46,7 +45,6 @@ class Reportes extends StatelessWidget {
                       shape: Border(),
                       title: Text(
                         'Periodo',
-                        style: TextStyle(fontFamily: 'Teachers'),
                       ),
                       children: [
                         Divider(),
@@ -55,7 +53,6 @@ class Reportes extends StatelessWidget {
                           enabled: false,
                           title: Text(
                             '2023',
-                            style: TextStyle(fontFamily: 'Teachers'),
                           ),
                           children: List.generate(
                             meses.length,
@@ -63,7 +60,6 @@ class Reportes extends StatelessWidget {
                               return ListTile(
                                 title: Text(
                                   meses[index],
-                                  style: TextStyle(fontFamily: 'Teachers'),
                                 ),
                               );
                             },
@@ -74,7 +70,6 @@ class Reportes extends StatelessWidget {
                           shape: Border(),
                           title: Text(
                             '2024',
-                            style: TextStyle(fontFamily: 'Teachers'),
                           ),
                           children: List.generate(
                             meses.length,
@@ -93,7 +88,6 @@ class Reportes extends StatelessWidget {
                                   },
                                   child: Text(
                                     meses[index],
-                                    style: TextStyle(fontFamily: 'Teachers'),
                                   ),
                                 ),
                               );
@@ -114,7 +108,9 @@ class Reportes extends StatelessWidget {
                           ),
                         );
                       },
-                      child: const Text('Iniciar sesion', style: TextStyle(fontFamily: 'Teachers'),),
+                      child: const Text(
+                        'Iniciar sesion',
+                      ),
                     ),
                   ),
                 ],

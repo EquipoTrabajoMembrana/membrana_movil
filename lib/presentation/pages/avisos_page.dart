@@ -9,7 +9,6 @@ class Avisos extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           'Avisos',
-          style: TextStyle(fontFamily: 'Teachers'),
         ),
       ),
       body: SafeArea(

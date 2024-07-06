@@ -21,6 +21,16 @@ class CustomElevatedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final buttonColor = notBackgroundColor
+        ? theme.colorScheme.onPrimary
+        : theme.colorScheme.primary;
+    final textColor = notBackgroundColor
+        ? theme.colorScheme.primary
+        : theme.colorScheme.onPrimary;
+    final iconColor = notBackgroundColor
+        ? theme.colorScheme.primary
+        : theme.colorScheme.onPrimary;
     return Material(
       color: Colors.transparent,
       child: ElevatedButton(
@@ -29,8 +39,7 @@ class CustomElevatedButton extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),
-          backgroundColor:
-              notBackgroundColor ? Colors.white : const Color(0xFF14213d),
+          backgroundColor: buttonColor,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -38,21 +47,19 @@ class CustomElevatedButton extends StatelessWidget {
             showLeadingIcon == true
                 ? Icon(
                     leadingIcon,
-                    color: const Color(0xFFf8f9fa),
+                    color: iconColor,
                   )
                 : const SizedBox.shrink(),
             Text(
               text ?? '',
-              style: TextStyle(
-                color:
-                    notBackgroundColor ? Color(0xFF14213d) : Color(0xFFf8f9fa),
-                fontFamily: 'Teachers',
+              style: theme.textTheme.bodyMedium?.copyWith(
+                color: textColor,
               ),
             ),
             showTrailingIcon == true
                 ? Icon(
                     trailingIcon,
-                    color: const Color(0xFFf8f9fa),
+                    color: iconColor,
                   )
                 : const SizedBox.shrink(),
           ],
