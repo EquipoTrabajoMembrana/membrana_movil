@@ -11,6 +11,7 @@ class Formularios extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -55,6 +56,7 @@ class Formularios extends StatelessWidget {
                                   Image.asset(
                                     'assets/images/logoNegro.png',
                                     width: 100,
+                                    color: theme.colorScheme.primary,
                                   ),
                                   Text(
                                     'Form',
@@ -74,25 +76,28 @@ class Formularios extends StatelessWidget {
                   child: SizedBox(
                     height: 170,
                     width: MediaQuery.of(context).size.width,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (BuildContext context, index) {
-                        return Card(
-                          child: Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: Column(
-                              children: [
-                                Image.asset(
-                                  'assets/images/logoNegro.png',
-                                  width: 100,
-                                ),
-                                Text('Form'),
-                              ],
+                    child: Center(
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (BuildContext context, index) {
+                          return Card(
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Column(
+                                children: [
+                                  Image.asset(
+                                    'assets/images/logoNegro.png',
+                                    width: 100,
+                                    color: theme.colorScheme.primary,
+                                  ),
+                                  Text('Form'),
+                                ],
+                              ),
                             ),
-                          ),
-                        );
-                      },
-                      itemCount: 3,
+                          );
+                        },
+                        itemCount: 3,
+                      ),
                     ),
                   ),
                 ),

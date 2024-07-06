@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:membrana/presentation/pages/forms_page.dart';
 import 'package:membrana/presentation/pages/login_page.dart';
 import 'package:membrana/presentation/pages/profile_page.dart';
+import 'package:membrana/presentation/pages/settings_page.dart';
 import '/mockMeses.dart';
 
 class Reportes extends StatelessWidget {
@@ -27,7 +28,14 @@ class Reportes extends StatelessWidget {
             icon: Icon(Icons.person),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Ajustes(),
+                ),
+              );
+            },
             icon: Icon(Icons.settings),
           ),
         ],

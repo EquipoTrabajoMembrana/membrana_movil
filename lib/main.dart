@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final brightness = View.of(context).platformDispatcher.platformBrightness;
+    // final brightness = View.of(context).platformDispatcher.platformBrightness;
     TextTheme textTheme = createTextTheme(context, 'Teachers');
     MaterialTheme theme = MaterialTheme(textTheme);
 
@@ -27,15 +27,12 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Membrana',
-          theme: brightness == Brightness.light ? theme.light() : theme.dark(),
+          themeMode: ThemeMode.system,
+          theme: theme.light(),
+          darkTheme: theme.dark(),
           home: const Home(),
         );
       },
     );
   }
 }
-
-
-
-
-

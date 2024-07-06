@@ -10,7 +10,6 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final screenWidth = MediaQuery.of(context).size.width;
-    // final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -25,6 +24,7 @@ class Login extends StatelessWidget {
                     child: Image.asset(
                       'assets/images/logoNegro.png',
                       width: 200,
+                      color: theme.colorScheme.primary,
                     ),
                   ),
                   Padding(
@@ -33,7 +33,7 @@ class Login extends StatelessWidget {
                       'Bienvenido',
                       style: theme.textTheme.headlineLarge?.copyWith(
                         fontWeight: FontWeight.bold,
-                        color: theme.primaryColor,
+                        color: theme.colorScheme.primary,
                       ),
                     ),
                   ),
