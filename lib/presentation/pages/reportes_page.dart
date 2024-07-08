@@ -90,6 +90,7 @@ class Reportes extends StatelessWidget {
                                       MaterialPageRoute(
                                         builder: (context) => Formularios(
                                           mesNombre: meses[index],
+                                          anioNombre: '2024',
                                         ),
                                       ),
                                     );

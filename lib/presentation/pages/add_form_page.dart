@@ -1,16 +1,33 @@
 import 'package:flutter/material.dart';
+
 import 'package:membrana/presentation/widgets/custom_elevatedbutton.dart';
 import 'package:membrana/presentation/widgets/custom_textfield.dart';
 
 class AgregarFormulario extends StatelessWidget {
-  const AgregarFormulario({super.key});
+  final String mesNombre;
+  final String anioNombre;
+  const AgregarFormulario({
+    Key? key,
+    required this.mesNombre,
+    required this.anioNombre,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Form 1',
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Form 1',
+            ),
+            Text(
+              mesNombre + ' ' + anioNombre,
+              style: theme.textTheme.bodySmall,
+            ),
+          ],
         ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios),

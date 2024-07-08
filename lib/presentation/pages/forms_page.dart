@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-
 import 'package:membrana/presentation/pages/add_form_page.dart';
 
 class Formularios extends StatelessWidget {
   final String mesNombre;
+  final String anioNombre;
   const Formularios({
     Key? key,
     required this.mesNombre,
+    required this.anioNombre,
   }) : super(key: key);
 
   @override
@@ -14,8 +15,17 @@ class Formularios extends StatelessWidget {
     final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          mesNombre,
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              mesNombre,
+            ),
+            Text(
+              anioNombre,
+              style: theme.textTheme.bodySmall,
+            ),
+          ],
         ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios),
@@ -26,86 +36,94 @@ class Formularios extends StatelessWidget {
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 5.0, bottom: 10.0),
-                  child: SizedBox(
-                    height: 170,
-                    width: MediaQuery.of(context).size.width,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (BuildContext context, index) {
-                        return GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const AgregarFormulario(),
-                              ),
-                            );
-                          },
-                          child: Card(
-                            child: Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: Column(
-                                children: [
-                                  Image.asset(
-                                    'assets/images/logoNegro.png',
-                                    width: 100,
-                                    color: theme.colorScheme.primary,
-                                  ),
-                                  Text(
-                                    'Form',
-                                  ),
-                                ],
-                              ),
-                            ),
+            padding: const EdgeInsets.all(20.0),
+            child: GridView.count(
+              crossAxisCount: 2,
+              children: List.generate(
+                15,
+                (index) {
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => AgregarFormulario(
+                            mesNombre: mesNombre,
+                            anioNombre: anioNombre,
                           ),
-                        );
-                      },
-                      itemCount: 3,
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 5.0, bottom: 10.0),
-                  child: SizedBox(
-                    height: 170,
-                    width: MediaQuery.of(context).size.width,
-                    child: Center(
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (BuildContext context, index) {
-                          return Card(
-                            child: Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: Column(
-                                children: [
-                                  Image.asset(
-                                    'assets/images/logoNegro.png',
-                                    width: 100,
-                                    color: theme.colorScheme.primary,
-                                  ),
-                                  Text('Form'),
-                                ],
-                              ),
+                        ),
+                      );
+                    },
+                    child: Card(
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Column(
+                          children: [
+                            Image.asset(
+                              'assets/images/logoNegro.png',
+                              width: 100,
+                              color: theme.colorScheme.primary,
                             ),
-                          );
-                        },
-                        itemCount: 3,
+                            Text(
+                              'Form',
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
+                  );
+                },
+              ),
+            )),
       ),
     );
   }
 }
+
+
+// Center(
+//             child: Column(
+//               mainAxisAlignment: MainAxisAlignment.center,
+//               children: [
+//                 Padding(
+//                   padding: const EdgeInsets.only(top: 5.0, bottom: 10.0),
+//                   child: SizedBox(
+//                     height: 170,
+//                     width: MediaQuery.of(context).size.width,
+//                     child: ListView.builder(
+//                       scrollDirection: Axis.horizontal,
+//                       itemBuilder: (BuildContext context, index) {
+//                         return GestureDetector(
+//                           onTap: () {
+//                             Navigator.push(
+//                               context,
+//                               MaterialPageRoute(
+//                                 builder: (context) => const AgregarFormulario(),
+//                               ),
+//                             );
+//                           },
+//                           child: Card(
+//                             child: Padding(
+//                               padding: const EdgeInsets.all(10.0),
+//                               child: Column(
+//                                 children: [
+//                                   Image.asset(
+//                                     'assets/images/logoNegro.png',
+//                                     width: 100,
+//                                     color: theme.colorScheme.primary,
+//                                   ),
+//                                   Text(
+//                                     'Form',
+//                                   ),
+//                                 ],
+//                               ),
+//                             ),
+//                           ),
+//                         );
+//                       },
+//                       itemCount: 3,
+//                     ),
+//                   ),
+//                 ),
+//               ],
+//             ),
