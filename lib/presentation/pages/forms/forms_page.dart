@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:membrana/presentation/pages/add_form_page.dart';
+import 'package:membrana/presentation/pages/agg_form/add_form_page.dart';
 
 class Formularios extends StatelessWidget {
   final String mesNombre;

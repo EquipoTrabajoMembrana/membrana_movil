@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:membrana/presentation/pages/avisos_page.dart';
-import 'package:membrana/presentation/pages/reportes_page.dart';
+import 'package:membrana/presentation/pages/avisos/avisos_page.dart';
+import 'package:membrana/presentation/pages/reportes/reportes_page.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});

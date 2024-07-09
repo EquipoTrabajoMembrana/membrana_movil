@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:membrana/presentation/pages/forms_page.dart';
-import 'package:membrana/presentation/pages/login_page.dart';
-import 'package:membrana/presentation/pages/profile_page.dart';
-import 'package:membrana/presentation/pages/settings_page.dart';
+import 'package:membrana/presentation/pages/forms/forms_page.dart';
+import 'package:membrana/presentation/pages/login/login_page.dart';
+import 'package:membrana/presentation/pages/perfil/profile_page.dart';
+import 'package:membrana/presentation/pages/ajustes/settings_page.dart';
 import '/mockMeses.dart';
 
 class Reportes extends StatelessWidget {

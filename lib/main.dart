@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:membrana/presentation/pages/home_page.dart';
+import 'package:membrana/presentation/pages/home/home_page.dart';
 import 'package:sizer/sizer.dart';
-import 'theme/theme.dart';
-import 'theme/util.dart';
+import 'presentation/theme/theme.dart';
+import 'presentation/theme/util.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
