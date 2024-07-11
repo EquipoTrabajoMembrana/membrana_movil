@@ -99,7 +99,9 @@ class AgregarFormulario extends StatelessWidget {
                       child: CustomElevatedButton(
                         onPressed: () {},
                         text: 'Cancelar',
-                        notBackgroundColor: true,
+                        isBackground: false,
+                        backColor: Color(0xFFc1121f),
+                        colorText: Colors.white,
                       ),
                     ),
                   ],

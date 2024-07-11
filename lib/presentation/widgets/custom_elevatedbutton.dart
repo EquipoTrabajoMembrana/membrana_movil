@@ -7,7 +7,9 @@ class CustomElevatedButton extends StatelessWidget {
   final IconData? trailingIcon;
   final bool showLeadingIcon;
   final bool showTrailingIcon;
-  final bool notBackgroundColor;
+  final bool isBackground;
+  final Color? backColor;
+  final Color? colorText;
   const CustomElevatedButton({
     super.key,
     this.onPressed,
@@ -16,21 +18,20 @@ class CustomElevatedButton extends StatelessWidget {
     this.trailingIcon,
     this.showLeadingIcon = false,
     this.showTrailingIcon = false,
-    this.notBackgroundColor = false,
+    this.isBackground = true,
+    this.backColor,
+    this.colorText,
   });
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final buttonColor = notBackgroundColor
+    final buttonColor = isBackground
         ? theme.colorScheme.onPrimary
-        : theme.colorScheme.primary;
-    final textColor = notBackgroundColor
-        ? theme.colorScheme.primary
-        : theme.colorScheme.onPrimary;
-    final iconColor = notBackgroundColor
-        ? theme.colorScheme.primary
-        : theme.colorScheme.onPrimary;
+        : (backColor ?? theme.colorScheme.primary);
+    final textColor = isBackground ? theme.colorScheme.primary : colorText;
+    final iconColor =
+        isBackground ? theme.colorScheme.primary : theme.colorScheme.onPrimary;
     return Material(
       color: Colors.transparent,
       child: ElevatedButton(
