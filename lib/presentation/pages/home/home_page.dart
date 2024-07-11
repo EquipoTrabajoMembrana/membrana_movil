@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:membrana/data/source/api_data.dart';
 import 'package:membrana/presentation/pages/avisos/avisos_page.dart';
 import 'package:membrana/presentation/pages/reportes/reportes_page.dart';
 
 class Home extends StatefulWidget {
-  final ApiClient apiClient;
 
-  const Home({super.key, required this.apiClient});
+  const Home({super.key});
 
   @override
   State<Home> createState() => _HomePageState();

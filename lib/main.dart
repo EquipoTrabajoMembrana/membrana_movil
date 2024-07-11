@@ -1,8 +1,5 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:membrana/data/source/api_data.dart';
 import 'package:membrana/presentation/pages/home/home_page.dart';
 import 'package:sizer/sizer.dart';
 import 'presentation/theme/theme.dart';
@@ -13,17 +10,11 @@ void main() async {
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
-  await dotenv.load(fileName: ".env");
-  final dio = Dio();
-  final apiUrl = dotenv.env['API_URL'] ?? 'default_api_url';
-  final apiClient = ApiClient(dio, baseUrl: apiUrl);
-  runApp(MyApp(apiClient: apiClient));
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  final ApiClient apiClient;
-
-  const MyApp({super.key, required this.apiClient});
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +30,7 @@ class MyApp extends StatelessWidget {
           themeMode: ThemeMode.system,
           theme: theme.light(),
           darkTheme: theme.dark(),
-          home: Home(apiClient: apiClient),
+          home: Home(),
         );
       },
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:membrana/presentation/pages/perfil/profile_page.dart';
 import 'package:membrana/presentation/widgets/custom_elevatedbutton.dart';
 import 'package:membrana/presentation/widgets/custom_textbutton.dart';
 import 'package:membrana/presentation/widgets/custom_textfield.dart';
@@ -81,7 +82,14 @@ class Login extends StatelessWidget {
                   SizedBox(
                     width: screenWidth,
                     child: CustomElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Perfil(),
+                          ),
+                        );
+                      },
                       text: 'Iniciar sesion',
                     ),
                   ),
