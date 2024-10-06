@@ -9,6 +9,8 @@ class CardDetailsPage extends StatefulWidget {
 }
 
 class _CardDetailsPageState extends State<CardDetailsPage> {
+  final formKey = GlobalKey<FormState>();
+
   bool cardDetails(String cardNumber) {
     final numberRegExp = RegExp(r"^\+?0[0-9]{16}$");
     return numberRegExp.hasMatch(cardNumber);
@@ -16,10 +18,12 @@ class _CardDetailsPageState extends State<CardDetailsPage> {
 
   @override
   Widget build(BuildContext context) {
-    final formKey = GlobalKey<FormState>();
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
       resizeToAvoidBottomInset: false,
+      appBar: AppBar(
+        title: const Text('Validador de tarjetas de credito'),
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(10.0),
@@ -31,6 +35,12 @@ class _CardDetailsPageState extends State<CardDetailsPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const Center(
+                    child: Text(
+                      'Ingresa los datos de tu tarjeta para ver si es valida',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 10),
                     child: Row(
@@ -95,10 +105,11 @@ class _CardDetailsPageState extends State<CardDetailsPage> {
                         hintText: 'Numero de tarjeta',
                       ),
                       validator: (value) {
-                        if (value == null ||
-                            value.isEmpty ||
-                            !cardDetails(value)) {
-                          return 'El numero de tarjeta es obligatorio';
+                        if (value == null || value.isEmpty) {
+                          return 'El número de tarjeta es obligatorio';
+                        }
+                        if (cardDetails(value)) {
+                          return 'El número de tarjeta no es válido';
                         }
                         return null;
                       },
@@ -121,6 +132,11 @@ class _CardDetailsPageState extends State<CardDetailsPage> {
                               if (value == null || value.isEmpty) {
                                 return 'El mes es obligatorio';
                               }
+                              final mes = int.tryParse(value);
+
+                              if (mes == null || mes < 1 || mes > 12) {
+                                return 'Mes no valido';
+                              }
                               return null;
                             },
                           ),
@@ -140,6 +156,11 @@ class _CardDetailsPageState extends State<CardDetailsPage> {
                             validator: (value) {
                               if (value == null || value.isEmpty) {
                                 return 'El año es obligatorio';
+                              }
+                              final anio = int.tryParse(value);
+
+                              if (anio == null || anio < 25 || anio > 30) {
+                                return 'Año no válido';
                               }
                               return null;
                             },
@@ -175,7 +196,7 @@ class _CardDetailsPageState extends State<CardDetailsPage> {
                           if (formKey.currentState?.validate() ?? false) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
-                                content: Text('Guardado'),
+                                content: Text('Tarjeta valida, gracias 🤓☝🏽'),
                               ),
                             );
                           }

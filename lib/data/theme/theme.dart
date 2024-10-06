@@ -67,6 +67,9 @@ class MaterialTheme {
             borderRadius: BorderRadius.circular(5.0),
           ),
         ),
+        appBarTheme: AppBarTheme(
+          backgroundColor: colorScheme.inversePrimary,
+        ),
       );
 
   List<ExtendedColor> get extendedColors => [];
